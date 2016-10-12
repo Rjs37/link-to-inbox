@@ -44,6 +44,10 @@
 		var domain = email.split('@')[1];
 		var parsedFilters = null;
 
+		// Accept other tlds for microsoft email domains
+		var re = /(live|hotmail|outlook)\.+(co.uk|com|fr|de|it|nl|be|pt|es|ie|no|se|fi|dk|at|ch|hu|lt|rs|gr|com.tr)/;
+		domain = domain.replace(re, 'outlook');
+
 		var spec = {
 			name: domain,
 			protocol: 'https',
@@ -84,9 +88,7 @@
 
 				break;
 
-			case 'live.com':
-			case 'hotmail.com':
-			case 'outlook.com':
+			case 'outlook':
 				spec.name = 'Outlook';
 				spec.domain = 'mail.live.com';
 				spec.path = '/';

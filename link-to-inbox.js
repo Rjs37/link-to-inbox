@@ -93,17 +93,6 @@
 				spec.domain = 'mail.live.com';
 				spec.path = '/';
 
-				if (parsedFilters) {
-					spec.path += '?fid=flsearch&srch=1&sdr=4&satt=0';
-
-					if (parsedFilters.subject) {
-						spec.path += '&skws=' + parsedFilters.subject;
-					}
-					else if (parsedFilters.sender) {
-						spec.path += '&skws=' + parsedFilters.sender;
-					}
-				}
-
 				break;
 				
 			default:
